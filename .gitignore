@@ -1,0 +1,30 @@
+
+# FRONTEND
+**/node_modules/
+**/dist/
+**/coverage/
+
+# BACKEND - JAVA / MAVEN
+**/target/
+**/build/
+*.class
+
+# INTELLIJ Y VS CODE
+**/.idea/
+**/.vscode/
+*.iml
+
+# ARCHIVOS TEMPORALES
+*.log
+.DS_Store
+Thumbs.db
+
+# CONFIGURACIONES PRIVADAS
+.env
+.env.*
+**/application.properties
+**/application.yml
+**/application.yaml
+
+# RESPALDO MYSQL
+database/*.sql

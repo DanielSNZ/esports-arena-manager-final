@@ -286,3 +286,214 @@ https://github.com/DanielSNZ/esports-arena-manager-final
 Versión publicada en GitHub: `main`.
 
 Proyecto desarrollado con React y Spring Boot utilizando arquitectura de microservicios.
+
+---
+
+## Guía de instalación en otro computador
+
+### 1. Versiones utilizadas en el desarrollo
+
+| Tecnología | Versión |
+|---|---|
+| Java JDK | 25 |
+| Spring Boot (user-service) | 4.0.6 |
+| Node.js | 24.22.0 |
+| npm | 11.19.1 |
+| Vite | 8.3.4 |
+| MySQL Server | 8.0.46 |
+| Git | 2.56.0 |
+
+Programas recomendados:
+- IntelliJ IDEA.
+- Visual Studio Code.
+- MySQL Workbench.
+
+### 2. Clonar el repositorio
+
+Abrir PowerShell y ejecutar:
+
+```powershell
+git clone https://github.com/DanielSNZ/esports-arena-manager-final.git
+cd esports-arena-manager-final
+```
+
+### 3. Preparar MySQL
+
+Iniciar MySQL Server y abrir MySQL Workbench.
+
+Ejecutar las siguientes consultas:
+
+```sql
+CREATE DATABASE IF NOT EXISTS game_service_db;
+CREATE DATABASE IF NOT EXISTS user_service_db;
+CREATE DATABASE IF NOT EXISTS tournament_service_db;
+CREATE DATABASE IF NOT EXISTS team_service_db;
+CREATE DATABASE IF NOT EXISTS match_service_db;
+CREATE DATABASE IF NOT EXISTS result_service_db;
+CREATE DATABASE IF NOT EXISTS registration_service_db;
+CREATE DATABASE IF NOT EXISTS ranking_service_db;
+CREATE DATABASE IF NOT EXISTS notification_service_db;
+CREATE DATABASE IF NOT EXISTS sanction_service_db;
+```
+
+### 4. Importar el respaldo de datos
+
+El archivo Dump20261123.sql se entrega por separado
+y no está incluido en el repositorio público.
+
+En MySQL Workbench:
+
+1. Seleccionar Server.
+2. Seleccionar Data Import.
+3. Seleccionar Import from Self-Contained File.
+4. Buscar el archivo Dump20261123.sql.
+5. Presionar Start Import.
+6. Actualizar la sección SCHEMAS.
+
+Esto permite recuperar los datos de demostración
+incluidos en el respaldo.
+
+### 5. Configurar el backend
+
+Abrir la siguiente carpeta en IntelliJ IDEA:
+
+backend/esports-arena-manager-actualizado-parcial-3
+
+Configurar Java JDK 25 como SDK del proyecto.
+
+Dentro de cada microservicio, ingresar a:
+
+src/main/resources/
+
+Copiar el archivo application-example.properties
+y renombrar la copia como application.properties.
+
+Para gateway-service, copiar application-example.yml
+y renombrar la copia como application.yml.
+
+En los servicios que utilizan MySQL, configurar:
+
+```properties
+spring.datasource.username=root
+spring.datasource.password=TU_PASSWORD_MYSQL
+```
+
+La contraseña debe corresponder al servidor MySQL
+del computador donde se ejecutará el proyecto.
+
+En user-service, configurar también jwt.secret
+con una clave privada nueva de al menos 32 bytes.
+
+No modificar los puertos ni las rutas configuradas
+en los archivos de ejemplo.
+
+### 6. Orden de ejecución del backend
+
+Primero iniciar Eureka Server.
+
+Después iniciar los servicios de negocio.
+
+Finalmente iniciar API Gateway.
+
+| Servicio | Puerto |
+|---|---|
+| eureka-service | 8761 |
+| game-service | 8081 |
+| user-service | 8082 |
+| tournament-service | 8083 |
+| team-service | 8084 |
+| match-service | 8085 |
+| result-service | 8086 |
+| registration-service | 8087 |
+| ranking-service | 8088 |
+| notification-service | 8089 |
+| sanction-service | 8090 |
+| gateway-service | 8080 |
+
+Cada servicio puede iniciarse desde IntelliJ IDEA
+ejecutando su clase principal Application.
+
+También puede iniciarse desde su propia carpeta
+utilizando Maven Wrapper:
+
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+Para utilizar este comando, Java debe estar
+correctamente configurado en Windows.
+
+Mantener todos los servicios ejecutándose.
+
+Comprobar el registro de los servicios en Eureka:
+
+http://localhost:8761
+
+### 7. Ejecutar el frontend
+
+Abrir una nueva terminal PowerShell desde
+la carpeta principal del repositorio.
+
+```powershell
+cd frontend/esports-arena-ep2-mein
+npm.cmd install
+npm.cmd run dev
+```
+
+Abrir el navegador en:
+
+http://localhost:5173
+
+Si Vite utiliza otro puerto, abrir la dirección
+que indique la terminal.
+
+Mantener la terminal abierta mientras se utiliza
+la aplicación.
+
+### 8. Comprobar el funcionamiento
+
+- Registrar un usuario de prueba.
+- Iniciar sesión.
+- Consultar los torneos.
+- Consultar los equipos.
+- Revisar las inscripciones.
+- Consultar los partidos.
+- Revisar los resultados y rankings.
+
+### 9. Solución de errores frecuentes
+
+**Error de conexión a MySQL:**
+
+Comprobar que MySQL Server esté iniciado y que
+las credenciales sean correctas.
+
+**Java no se reconoce en PowerShell:**
+
+Configurar JAVA_HOME y PATH o ejecutar los
+microservicios directamente desde IntelliJ IDEA
+con JDK 25.
+
+**Error al ejecutar npm:**
+
+Utilizar npm.cmd en lugar de npm en PowerShell.
+
+**Error de conexión entre frontend y backend:**
+
+Comprobar que Eureka, API Gateway y los
+microservicios correspondientes estén ejecutándose.
+
+**Puerto ocupado:**
+
+Cerrar la aplicación que esté utilizando el puerto
+correspondiente antes de iniciar el servicio.
+
+### 10. Consideraciones finales
+
+El repositorio contiene el código fuente del frontend,
+backend y archivos de configuración de ejemplo.
+
+Por seguridad, las contraseñas, claves privadas y
+el respaldo SQL no están publicados en GitHub.
+
+El proyecto debe configurarse localmente antes
+de ejecutarse en un nuevo computador.

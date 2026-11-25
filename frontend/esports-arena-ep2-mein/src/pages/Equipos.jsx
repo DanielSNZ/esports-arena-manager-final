@@ -1,36 +1,68 @@
 
-
 import { useEffect, useState } from 'react';
 
 const API = 'http://localhost:8080';
 
 function TarjetaEquipo({ equipo }) {
   return (
-    <article className="h-100">
-      <h3>{equipo.nombre}</h3>
+    <article className="arena-equipo-card h-100">
 
-      <p>
-        Juego: {equipo.juegoPrincipalId === 1
-          ? 'Valorant'
-          : `Juego ID: ${equipo.juegoPrincipalId}`}
-      </p>
+      {/* ENCABEZADO DEL EQUIPO */}
 
-      <p>
-        Capitán: {equipo.nombreCapitan}
-      </p>
+      <div className="arena-equipo-header">
 
-      <p>
-        Estado:{' '}
-        <span
-          className={
-            equipo.estado === 'ACTIVO'
-              ? 'text-success'
-              : 'text-danger'
-          }
-        >
-          {equipo.estado}
-        </span>
-      </p>
+        <div className="arena-equipo-avatar">
+          {equipo.nombre
+            .split(' ')
+            .filter(Boolean)
+            .map(palabra => palabra[0])
+            .slice(0, 2)
+            .join('')
+            .toUpperCase()}
+        </div>
+
+        <h3>{equipo.nombre}</h3>
+
+        <p className="arena-equipo-juego">
+          Juego: {equipo.juegoPrincipalId === 1
+            ? 'Valorant'
+            : `Juego ID: ${equipo.juegoPrincipalId}`}
+        </p>
+
+      </div>
+
+      {/* INFORMACIÓN DEL EQUIPO */}
+
+      <div className="arena-equipo-body">
+
+        <div className="arena-equipo-fila">
+
+          <span>Capitán:</span>
+
+          <strong>
+            {equipo.nombreCapitan}
+          </strong>
+
+        </div>
+
+        <div className="arena-equipo-fila">
+
+          <span>Estado:</span>
+
+          <span
+            className={
+              equipo.estado === 'ACTIVO'
+                ? 'arena-equipo-estado text-success'
+                : 'arena-equipo-estado text-danger'
+            }
+          >
+            {equipo.estado}
+          </span>
+
+        </div>
+
+      </div>
+
     </article>
   );
 }
@@ -114,15 +146,35 @@ export default function Equipos() {
   }, []);
 
   return (
-    <main className="container-fluid pagina-equipos py-4">
+    <main className="arena-equipos-page">
+
       <section>
-        <h2>Equipos</h2>
 
-        <p>
-          Revisa los equipos registrados en eSports Arena Manager.
-        </p>
+        {/* ENCABEZADO DE PÁGINA */}
 
-        {cargando && <p>Cargando equipos...</p>}
+        <div className="arena-page-heading">
+
+          <span className="arena-label">
+            ESPORTS ARENA / COMUNIDAD
+          </span>
+
+          <h2>Equipos registrados</h2>
+
+          <p>
+            Revisa los equipos registrados en eSports Arena Manager.
+          </p>
+
+        </div>
+
+        {/* ESTADO DE CARGA */}
+
+        {cargando && (
+          <div className="arena-torneo-message">
+            <p>Cargando equipos...</p>
+          </div>
+        )}
+
+        {/* MENSAJE DE ERROR */}
 
         {error && (
           <div className="alert alert-danger" role="alert">
@@ -130,23 +182,32 @@ export default function Equipos() {
           </div>
         )}
 
-        {!cargando && !error && equipos.length === 0 && (
-          <p>No hay equipos activos registrados.</p>
-        )}
+        {/* LISTA VACÍA */}
 
-        {!cargando && !error && (
-          <div className="row g-3">
-            {equipos.map(equipo => (
-              <div
-                className="col-12 col-md-6 col-xl-4"
-                key={equipo.equipoId}
-              >
-                <TarjetaEquipo equipo={equipo} />
-              </div>
-            ))}
+        {!cargando && !error && equipos.length === 0 && (
+          <div className="arena-torneo-message">
+            <p>No hay equipos activos registrados.</p>
           </div>
         )}
+
+        {/* LISTADO DE EQUIPOS REALES */}
+
+        {!cargando && !error && (
+          <div className="arena-equipos-grid">
+
+            {equipos.map(equipo => (
+              <div key={equipo.equipoId}>
+
+                <TarjetaEquipo equipo={equipo} />
+
+              </div>
+            ))}
+
+          </div>
+        )}
+
       </section>
+
     </main>
   );
 }

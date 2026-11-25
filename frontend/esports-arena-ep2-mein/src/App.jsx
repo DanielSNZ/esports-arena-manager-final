@@ -60,50 +60,93 @@ export default function App() {
 
   return (
     <>
-      <header className="banner-header">
-        <img
-          src="/img/banner-header.png"
-          alt=""
-          className="banner-header-imagen"
-        />
+      {/* NUEVA BARRA DE NAVEGACIÓN */}
 
-        <img
-          src="/img/logo-esports.png"
-          alt="eSports Arena Manager - Gestión de torneos competitivos"
-          className="banner-logo"
-        />
-      </header>
+      <header className="arena-topbar">
 
-      <nav className="navbar">
-        <div className="container d-flex justify-content-center gap-4 flex-wrap">
+        <Link to="/" className="arena-top-logo">
+          ESPORTS<span>ARENA</span>
+          <small>MANAGER</small>
+        </Link>
 
-          <Link className="nav-link" to="/">
+        <nav className="arena-top-nav">
+
+          <Link
+            to="/"
+            className={location.pathname === '/' ? 'activo' : ''}
+          >
             Inicio
           </Link>
 
-          <Link className="nav-link" to="/torneos">
+          <Link
+            to="/torneos"
+            className={location.pathname === '/torneos' ? 'activo' : ''}
+          >
             Torneos
           </Link>
 
+          <Link
+            to="/equipos"
+            className={location.pathname === '/equipos' ? 'activo' : ''}
+          >
+            Equipos
+          </Link>
+
+          <Link
+            to="/partidas"
+            className={location.pathname === '/partidas' ? 'activo' : ''}
+          >
+            Partidas
+          </Link>
+
+          <Link
+            to="/ranking"
+            className={location.pathname === '/ranking' ? 'activo' : ''}
+          >
+            Ranking
+          </Link>
+
+          <Link
+            to="/inscripcion"
+            className={location.pathname === '/inscripcion' ? 'activo' : ''}
+          >
+            Inscripción
+          </Link>
+
+        </nav>
+
+        {/* CUENTA DE USUARIO */}
+
+        <div className="arena-top-account">
+
           {!sesion ? (
             <>
-              <Link className="nav-link" to="/registro">
+              <Link
+                to="/registro"
+                className="arena-register-link"
+              >
                 Registro
               </Link>
 
-              <Link className="nav-link" to="/login">
+              <Link
+                to="/login"
+                className="arena-login-button"
+              >
                 Iniciar sesión
               </Link>
             </>
           ) : (
             <>
-              <Link className="nav-link" to="/">
+              <Link
+                to="/"
+                className="arena-register-link"
+              >
                 Mi cuenta
               </Link>
 
               <button
                 type="button"
-                className="nav-link btn btn-link"
+                className="arena-login-button"
                 onClick={cerrarSesion}
               >
                 Cerrar sesión
@@ -111,26 +154,14 @@ export default function App() {
             </>
           )}
 
-          <Link className="nav-link" to="/inscripcion">
-            Inscripción
-          </Link>
-
-          <Link className="nav-link" to="/equipos">
-            Equipos
-          </Link>
-
-          <Link className="nav-link" to="/partidas">
-            Partidas
-          </Link>
-
-          <Link className="nav-link" to="/ranking">
-            Ranking
-          </Link>
-
         </div>
-      </nav>
+
+      </header>
+
+      {/* RUTAS DE LA APLICACIÓN */}
 
       <Routes>
+
         <Route path="/" element={<Home />} />
 
         <Route path="/registro" element={<Registro />} />
@@ -156,10 +187,13 @@ export default function App() {
 
       </Routes>
 
+      {/* PIE DE PÁGINA */}
+
       <footer className="text-center py-3">
         <p>eSports Arena Manager - Desarrollo FullStack II</p>
         <p>Proyecto académico 2026</p>
       </footer>
+
     </>
   );
 }

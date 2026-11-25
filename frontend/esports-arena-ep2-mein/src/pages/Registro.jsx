@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const valoresIniciales = {
   nombre: '',
@@ -155,87 +156,184 @@ export default function Registro() {
   ];
 
   return (
-    <main className="container-fluid pagina-registro py-5">
-      <section className="row justify-content-center">
-        <div className="col-12 col-md-8 col-lg-6">
+    <main className="arena-login-page arena-registro-page">
 
-          <h2>Crear cuenta</h2>
+      <section className="arena-login-container arena-registro-container">
 
-          <p>
-            Regístrate para participar en los torneos
-            de eSports Arena Manager.
-          </p>
+        {/* PANEL IZQUIERDO */}
 
-          <form onSubmit={manejarEnvio} noValidate>
+        <div className="arena-login-brand">
 
-            {campos.map((campo) => (
-              <div className="mb-3" key={campo.name}>
+          <div className="arena-login-brand-content">
 
-                <label
-                  htmlFor={campo.name}
-                  className="form-label"
-                >
-                  {campo.label}:
-                </label>
+            <div className="arena-login-icon">
+              🎮
+            </div>
 
-                <input
-                  id={campo.name}
-                  name={campo.name}
-                  type={campo.type}
-                  placeholder={campo.placeholder}
-                  autoComplete={campo.autoComplete}
-                  value={datos[campo.name]}
-                  onChange={manejarCambio}
-                  aria-invalid={
-                    enviado && Boolean(errores[campo.name])
-                  }
-                  aria-describedby={
-                    enviado && errores[campo.name]
-                      ? `${campo.name}-error`
-                      : undefined
-                  }
-                  className={`form-control ${
-                    enviado && errores[campo.name]
-                      ? 'is-invalid'
-                      : ''
-                  }`}
-                  disabled={cargando}
-                  required
-                />
+            <div className="arena-login-logo">
+              ESPORTS<span>ARENA</span>
+              <small>MANAGER</small>
+            </div>
 
-                {enviado && errores[campo.name] && (
-                  <div
-                    id={`${campo.name}-error`}
-                    className="invalid-feedback"
-                  >
-                    {errores[campo.name]}
-                  </div>
-                )}
+            <div className="arena-login-line"></div>
 
+            <span className="arena-label">
+              ÚNETE A LA COMUNIDAD
+            </span>
+
+            <h1>
+              CONVIÉRTETE EN EL
+              <span> PRÓXIMO CAMPEÓN.</span>
+            </h1>
+
+            <p>
+              Crea tu cuenta y comienza tu aventura
+              competitiva en eSports Arena Manager.
+            </p>
+
+            <div className="arena-login-features">
+
+              <div>
+                <span>✓</span>
+                Participa en torneos
               </div>
-            ))}
 
-            <button
-              type="submit"
-              className="btn btn-primary"
-              disabled={cargando}
-            >
-              {cargando ? 'Registrando...' : 'Crear cuenta'}
-            </button>
-
-            {mensaje && (
-              <div
-                className={`alert alert-${tipoMensaje} mt-3`}
-                role="status"
-              >
-                {mensaje}
+              <div>
+                <span>✓</span>
+                Forma parte de la comunidad
               </div>
-            )}
 
-          </form>
+              <div>
+                <span>✓</span>
+                Compite por el primer lugar
+              </div>
+
+            </div>
+
+          </div>
+
+          <div className="arena-login-brand-footer">
+            ESPORTS ARENA MANAGER
+          </div>
 
         </div>
+
+        {/* PANEL DERECHO */}
+
+        <div className="arena-login-access">
+
+          <div className="arena-login-form-content">
+
+            <span className="arena-label">
+              REGISTRO DE JUGADORES
+            </span>
+
+            <h2>Crear cuenta</h2>
+
+            <p className="arena-login-description">
+              Regístrate para participar en los torneos
+              de eSports Arena Manager.
+            </p>
+
+            {/* FORMULARIO DE REGISTRO */}
+
+            <form
+              className="arena-login-form"
+              onSubmit={manejarEnvio}
+              noValidate
+            >
+
+              {campos.map((campo) => (
+                <div
+                  className="arena-login-field"
+                  key={campo.name}
+                >
+
+                  <label
+                    htmlFor={campo.name}
+                    className="form-label"
+                  >
+                    {campo.label}:
+                  </label>
+
+                  <input
+                    id={campo.name}
+                    name={campo.name}
+                    type={campo.type}
+                    placeholder={campo.placeholder}
+                    autoComplete={campo.autoComplete}
+                    value={datos[campo.name]}
+                    onChange={manejarCambio}
+                    aria-invalid={
+                      enviado && Boolean(errores[campo.name])
+                    }
+                    aria-describedby={
+                      enviado && errores[campo.name]
+                        ? `${campo.name}-error`
+                        : undefined
+                    }
+                    className={`form-control ${
+                      enviado && errores[campo.name]
+                        ? 'is-invalid'
+                        : ''
+                    }`}
+                    disabled={cargando}
+                    required
+                  />
+
+                  {enviado && errores[campo.name] && (
+                    <div
+                      id={`${campo.name}-error`}
+                      className="invalid-feedback"
+                    >
+                      {errores[campo.name]}
+                    </div>
+                  )}
+
+                </div>
+              ))}
+
+              <button
+                type="submit"
+                className="arena-login-button"
+                disabled={cargando}
+              >
+                {cargando ? 'Registrando...' : 'Crear cuenta'}
+              </button>
+
+              {mensaje && (
+                <div
+                  className={`alert alert-${tipoMensaje} mt-3`}
+                  role="status"
+                >
+                  {mensaje}
+                </div>
+              )}
+
+            </form>
+
+            {/* ENLACE AL LOGIN */}
+
+            <div className="arena-login-register">
+
+              ¿Ya tienes una cuenta?{' '}
+
+              <Link to="/login">
+                Inicia sesión
+              </Link>
+
+            </div>
+
+            <div className="arena-login-security">
+              🔒 Registro de jugadores
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
+
     </main>
   );
 }

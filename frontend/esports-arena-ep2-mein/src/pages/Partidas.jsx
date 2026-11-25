@@ -12,6 +12,18 @@ function obtenerLista(datos, nombreColeccion) {
   return datos?._embedded?.[nombreColeccion] || [];
 }
 
+// Generar iniciales únicamente para el diseño
+function obtenerIniciales(nombre) {
+  return String(nombre || '')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .map(palabra => palabra[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase() || '?';
+}
+
 // Componente reutilizable
 function TarjetaPartida({ partida }) {
   const clasesEstado = {
@@ -22,46 +34,124 @@ function TarjetaPartida({ partida }) {
   };
 
   return (
-    <article className="h-100">
-      <h3>{partida.nombreTorneo}</h3>
+    <article className="arena-partida-card h-100">
 
-      <p>Equipo local: {partida.nombreLocal}</p>
+      {/* ENCABEZADO DE LA PARTIDA */}
 
-      <p>Equipo visitante: {partida.nombreVisitante}</p>
+      <div className="arena-partida-header">
 
-      <p>
-        Fecha: {partida.fechaPartida?.replace('T', ' ')}
-      </p>
+        <h3>{partida.nombreTorneo}</h3>
 
-      <p>
-        Estado:{' '}
-        <span className={clasesEstado[partida.estado] || ''}>
-          {partida.estado}
+        <span
+          className={`arena-partida-estado ${clasesEstado[partida.estado] || ''}`}
+        >
+          Estado: {partida.estado}
         </span>
-      </p>
 
-      {partida.resultado && (
-        <>
-          <p>
-            <strong>
-              Marcador: {partida.resultado.puntajeA} -{' '}
-              {partida.resultado.puntajeB}
+      </div>
+
+      {/* EQUIPOS ENFRENTADOS */}
+
+      <div className="arena-partida-enfrentamiento">
+
+        {/* EQUIPO LOCAL */}
+
+        <div className="arena-partida-equipo">
+
+          <span className="arena-partida-posicion">
+            Equipo local
+          </span>
+
+          <div className="arena-partida-avatar">
+            {obtenerIniciales(partida.nombreLocal)}
+          </div>
+
+          <h4>{partida.nombreLocal}</h4>
+
+        </div>
+
+        {/* MARCADOR CENTRAL */}
+
+        <div className="arena-partida-marcador">
+
+          {partida.resultado ? (
+            <>
+              <strong>
+                {partida.resultado.puntajeA}
+                <span> : </span>
+                {partida.resultado.puntajeB}
+              </strong>
+
+              <small>MARCADOR</small>
+            </>
+          ) : (
+            <strong className="arena-partida-vs">
+              VS
             </strong>
-          </p>
+          )}
 
-          <p>
-            Ganador:{' '}
-            <span className="text-success">
-              {partida.nombreGanador}
-            </span>
-          </p>
+        </div>
 
-          <p>
-            Validación:{' '}
-            {partida.resultado.estadoValidacion}
-          </p>
-        </>
-      )}
+        {/* EQUIPO VISITANTE */}
+
+        <div className="arena-partida-equipo">
+
+          <span className="arena-partida-posicion">
+            Equipo visitante
+          </span>
+
+          <div className="arena-partida-avatar">
+            {obtenerIniciales(partida.nombreVisitante)}
+          </div>
+
+          <h4>{partida.nombreVisitante}</h4>
+
+        </div>
+
+      </div>
+
+      {/* INFORMACIÓN ADICIONAL */}
+
+      <div className="arena-partida-detalles">
+
+        {partida.resultado && (
+          <>
+
+            <div className="arena-partida-fila">
+
+              <span>Ganador:</span>
+
+              <strong className="text-success">
+                {partida.nombreGanador}
+              </strong>
+
+            </div>
+
+            <div className="arena-partida-fila">
+
+              <span>Validación:</span>
+
+              <strong>
+                {partida.resultado.estadoValidacion}
+              </strong>
+
+            </div>
+
+          </>
+        )}
+
+        <div className="arena-partida-fila">
+
+          <span>Fecha:</span>
+
+          <strong>
+            {partida.fechaPartida?.replace('T', ' ')}
+          </strong>
+
+        </div>
+
+      </div>
+
     </article>
   );
 }
@@ -217,15 +307,35 @@ export default function Partidas() {
   }, []);
 
   return (
-    <main className="container-fluid pagina-partidas py-4">
+    <main className="arena-partidas-page">
+
       <section>
-        <h2>Partidas</h2>
 
-        <p>
-          Revisa las partidas programadas y sus resultados.
-        </p>
+        {/* ENCABEZADO DE PÁGINA */}
 
-        {cargando && <p>Cargando partidas...</p>}
+        <div className="arena-page-heading">
+
+          <span className="arena-label">
+            ESPORTS ARENA / RESULTADOS
+          </span>
+
+          <h2>Centro de partidas</h2>
+
+          <p>
+            Revisa las partidas programadas y sus resultados.
+          </p>
+
+        </div>
+
+        {/* ESTADO DE CARGA */}
+
+        {cargando && (
+          <div className="arena-torneo-message">
+            <p>Cargando partidas...</p>
+          </div>
+        )}
+
+        {/* MENSAJE DE ERROR */}
 
         {error && (
           <div className="alert alert-danger" role="alert">
@@ -233,23 +343,32 @@ export default function Partidas() {
           </div>
         )}
 
-        {!cargando && !error && partidas.length === 0 && (
-          <p>No hay partidas registradas.</p>
-        )}
+        {/* LISTA VACÍA */}
 
-        {!cargando && !error && partidas.length > 0 && (
-          <div className="row g-3">
-            {partidas.map((partida) => (
-              <div
-                className="col-12 col-md-6 col-xl-4"
-                key={partida.partidaId}
-              >
-                <TarjetaPartida partida={partida} />
-              </div>
-            ))}
+        {!cargando && !error && partidas.length === 0 && (
+          <div className="arena-torneo-message">
+            <p>No hay partidas registradas.</p>
           </div>
         )}
+
+        {/* LISTADO DE PARTIDAS REALES */}
+
+        {!cargando && !error && partidas.length > 0 && (
+          <div className="arena-partidas-grid">
+
+            {partidas.map((partida) => (
+              <div key={partida.partidaId}>
+
+                <TarjetaPartida partida={partida} />
+
+              </div>
+            ))}
+
+          </div>
+        )}
+
       </section>
+
     </main>
   );
 }

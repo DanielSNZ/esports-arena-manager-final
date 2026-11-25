@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -60,73 +60,170 @@ export default function Login() {
   }
 
   return (
-    <main className="container-fluid pagina-registro py-5">
-      <section className="row justify-content-center">
-        <div className="col-12 col-md-8 col-lg-6">
+    <main className="arena-login-page">
 
-          <h2>Iniciar sesión</h2>
+      <section className="arena-login-container">
 
-          <p>
-            Ingresa a tu cuenta de eSports Arena Manager.
-          </p>
+        {/* PANEL IZQUIERDO */}
 
-          <form onSubmit={manejarLogin}>
+        <div className="arena-login-brand">
 
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Correo electrónico:
-              </label>
+          <div className="arena-login-brand-content">
 
-              <input
-                id="email"
-                type="email"
-                className="form-control"
-                placeholder="Ej: jugador@correo.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                autoComplete="email"
-                required
-              />
+            <div className="arena-login-icon">
+              🎮
             </div>
 
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Contraseña:
-              </label>
-
-              <input
-                id="password"
-                type="password"
-                className="form-control"
-                placeholder="Ingresa tu contraseña"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete="current-password"
-                required
-              />
+            <div className="arena-login-logo">
+              ESPORTS<span>ARENA</span>
+              <small>MANAGER</small>
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-primary"
-              disabled={cargando}
-            >
-              {cargando ? 'Ingresando...' : 'Iniciar sesión'}
-            </button>
+            <div className="arena-login-line"></div>
 
-            {error && (
-              <div
-                className="alert alert-danger mt-3"
-                role="alert"
-              >
-                {error}
+            <span className="arena-label">
+              BIENVENIDO A LA COMPETICIÓN
+            </span>
+
+            <h1>
+              TU PRÓXIMA VICTORIA
+              <span> COMIENZA AQUÍ.</span>
+            </h1>
+
+            <p>
+              Compite, forma tu equipo y conquista el ranking.
+              Todo comienza en eSports Arena Manager.
+            </p>
+
+            <div className="arena-login-features">
+
+              <div>
+                <span>✓</span>
+                Torneos competitivos
               </div>
-            )}
 
-          </form>
+              <div>
+                <span>✓</span>
+                Equipos y comunidad
+              </div>
+
+              <div>
+                <span>✓</span>
+                Clasificación de equipos
+              </div>
+
+            </div>
+
+          </div>
+
+          <div className="arena-login-brand-footer">
+            ESPORTS ARENA MANAGER
+          </div>
 
         </div>
+
+        {/* PANEL DERECHO */}
+
+        <div className="arena-login-access">
+
+          <div className="arena-login-form-content">
+
+            <span className="arena-label">
+              ACCESO A LA PLATAFORMA
+            </span>
+
+            <h2>Iniciar sesión</h2>
+
+            <p className="arena-login-description">
+              Ingresa a tu cuenta de eSports Arena Manager.
+            </p>
+
+            {/* FORMULARIO ORIGINAL */}
+
+            <form
+              className="arena-login-form"
+              onSubmit={manejarLogin}
+            >
+
+              <div className="arena-login-field">
+
+                <label htmlFor="email" className="form-label">
+                  Correo electrónico:
+                </label>
+
+                <input
+                  id="email"
+                  type="email"
+                  className="form-control"
+                  placeholder="Ej: jugador@correo.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="email"
+                  required
+                />
+
+              </div>
+
+              <div className="arena-login-field">
+
+                <label htmlFor="password" className="form-label">
+                  Contraseña:
+                </label>
+
+                <input
+                  id="password"
+                  type="password"
+                  className="form-control"
+                  placeholder="Ingresa tu contraseña"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  autoComplete="current-password"
+                  required
+                />
+
+              </div>
+
+              <button
+                type="submit"
+                className="arena-login-button"
+                disabled={cargando}
+              >
+                {cargando ? 'Ingresando...' : 'Iniciar sesión'}
+              </button>
+
+              {error && (
+                <div
+                  className="alert alert-danger mt-3"
+                  role="alert"
+                >
+                  {error}
+                </div>
+              )}
+
+            </form>
+
+            {/* ENLACE AL REGISTRO */}
+
+            <div className="arena-login-register">
+
+              ¿No tienes una cuenta?{' '}
+
+              <Link to="/registro">
+                Regístrate
+              </Link>
+
+            </div>
+
+            <div className="arena-login-security">
+              🔒 Acceso a tu cuenta
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
+
     </main>
   );
 }

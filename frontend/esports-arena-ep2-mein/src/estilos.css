@@ -514,3 +514,2450 @@ header.banner-header {
 .banner-header-imagen {
     object-position: center;
 }
+
+
+
+/* ==========================================
+   REDISEÑO PROFESIONAL - ESPORTS ARENA
+========================================== */
+
+:root {
+    --color-principal: #0b0e14;
+    --color-secundario: #00d4ff;
+    --color-fondo: #0b0e14;
+    --color-texto: #f1f5f9;
+    --color-tarjeta: #151b25;
+    --color-borde: #283344;
+    --color-titulo: #f1f5f9;
+}
+
+/* FONDO GENERAL */
+
+html {
+    color-scheme: dark;
+    background: #0b0e14;
+}
+
+body {
+    margin: 0;
+    background: #0b0e14;
+    color: #f1f5f9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#root {
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    text-align: left;
+    min-height: 100vh;
+}
+
+main {
+    padding: 40px 5%;
+    min-height: 75vh;
+}
+
+/* HEADER */
+
+header.banner-header {
+    height: 95px;
+    background: #0b0e14;
+    border-bottom: 1px solid #283344;
+}
+
+.banner-header-imagen {
+    display: none;
+}
+
+.banner-logo {
+    width: 230px;
+    max-height: 75px;
+    filter: none;
+}
+
+/* NAVEGACIÓN */
+
+nav.navbar {
+    background: #111620;
+    padding: 12px 20px;
+    border-bottom: 1px solid #283344;
+}
+
+nav.navbar .nav-link {
+    color: #cbd5e1;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+nav.navbar .nav-link:hover {
+    background: #1c2735;
+    color: #00d4ff;
+}
+
+/* ELIMINAR FONDOS DE GUERRA */
+
+.pagina-inicio,
+.pagina-torneos,
+.pagina-registro,
+.pagina-inscripcion,
+.pagina-equipos,
+.pagina-partidas,
+.pagina-ranking,
+.pagina-login {
+    background-image: none;
+    background-color: #0b0e14;
+    color: #f1f5f9;
+    min-height: 75vh;
+}
+
+/* TÍTULOS */
+
+main h1,
+main h2 {
+    color: #f1f5f9;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+main h3 {
+    color: #f1f5f9;
+    font-weight: 600;
+}
+
+main section > p {
+    color: #a0aec0;
+    line-height: 1.7;
+}
+
+/* TARJETAS */
+
+#lista-torneos article,
+#lista-equipos article,
+#lista-partidas article,
+#lista-ranking article,
+.pagina-torneos article,
+.pagina-equipos article,
+.pagina-partidas article,
+.pagina-ranking article,
+.pagina-inicio section {
+    background: #151b25;
+    color: #f1f5f9;
+    border: 1px solid #283344;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: none;
+    transition: border-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+main article:hover {
+    border-color: #00d4ff;
+    transform: translateY(-3px);
+    box-shadow: none;
+}
+
+#lista-torneos article h3,
+#lista-equipos article h3,
+#lista-partidas article h3,
+#lista-ranking article h3,
+.pagina-torneos article h3,
+.pagina-equipos article h3,
+.pagina-partidas article h3,
+.pagina-ranking article h3 {
+    color: #00d4ff;
+}
+
+/* FORMULARIOS */
+
+form,
+.pagina-registro form,
+.pagina-inscripcion form,
+.pagina-login form {
+    background: #151b25;
+    color: #f1f5f9;
+    border: 1px solid #283344;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: none;
+}
+
+form input,
+form select,
+form .form-control,
+form .form-select {
+    background-color: #0b0e14;
+    color: #f1f5f9;
+    border: 1px solid #354155;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+form input::placeholder {
+    color: #94a3b8;
+}
+
+form input:focus,
+form select:focus {
+    background-color: #111620;
+    color: #ffffff;
+    border-color: #00d4ff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.12);
+}
+
+/* BOTONES */
+
+main .btn-primary,
+form button,
+#lista-torneos button,
+.pagina-torneos article button {
+    background-color: #00d4ff;
+    color: #081018;
+    border: 1px solid #00d4ff;
+    border-radius: 6px;
+    font-weight: 700;
+    padding: 12px 20px;
+    transition: all 0.2s ease;
+}
+
+main .btn-primary:hover,
+form button:hover,
+.pagina-torneos article button:hover {
+    background-color: #5ce5ff;
+    color: #081018;
+}
+
+main button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ESTADOS */
+
+.estado-abierto {
+    color: #34d399;
+}
+
+.estado-curso {
+    color: #fbbf24;
+}
+
+.estado-finalizado {
+    color: #f87171;
+}
+
+/* MENSAJES DE ERROR */
+
+.alert-danger {
+    background: #29171d;
+    border: 1px solid #71313d;
+    color: #fca5a5;
+    border-radius: 8px;
+}
+
+.invalid-feedback,
+.text-danger,
+form small {
+    color: #fca5a5 !important;
+}
+
+/* FOOTER */
+
+footer {
+    background: #080b10;
+    border-top: 1px solid #283344;
+    color: #94a3b8;
+    padding: 25px;
+    font-size: 13px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    main {
+        padding: 25px 15px;
+    }
+
+    header.banner-header {
+        height: 80px;
+    }
+
+    .banner-logo {
+        width: 190px;
+        max-height: 65px;
+    }
+
+    nav.navbar .nav-link {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    main h2 {
+        font-size: 25px;
+    }
+
+    #lista-torneos,
+    #lista-equipos,
+    #lista-partidas,
+    #lista-ranking {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================
+   ESPORTS ARENA - DASHBOARD PROFESIONAL
+===================================== */
+
+.arena-dashboard {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr) 280px;
+    gap: 28px;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 35px 30px;
+    background: #090a0c;
+    color: #f1f5f9;
+    text-align: left;
+    min-height: 85vh;
+}
+
+/* MENÚ LATERAL */
+
+.arena-sidebar {
+    padding: 20px 15px;
+}
+
+.arena-brand {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 35px;
+}
+
+.arena-brand span {
+    color: #00d4ff;
+}
+
+.arena-label {
+    display: block;
+    color: #00d4ff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.arena-sidebar .arena-label {
+    margin-top: 30px;
+    color: #84909e;
+}
+
+.arena-sidebar a {
+    display: block;
+    color: #b5bdc9;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 10px;
+    border-left: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.arena-sidebar a:hover {
+    background: #171b20;
+    border-left-color: #00d4ff;
+    color: #00d4ff;
+}
+
+/* CONTENIDO CENTRAL */
+
+.arena-central {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.arena-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at top right,
+            #123b49 0%,
+            transparent 65%
+        ),
+        linear-gradient(135deg, #141b24, #0b0e13);
+    border: 1px solid #263440;
+    border-radius: 8px;
+    padding: 45px 35px;
+}
+
+.arena-hero h1 {
+    color: #ffffff;
+    font-size: clamp(36px, 4vw, 64px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin: 20px 0;
+}
+
+.arena-hero p {
+    color: #aeb8c5;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 25px;
+}
+
+.arena-section-title {
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* TARJETAS DE NAVEGACIÓN */
+
+.arena-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.arena-option {
+    display: block;
+    padding: 25px;
+    background: #15171b;
+    border: 1px solid #292e36;
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.arena-option:hover {
+    background: #1b222a;
+    border-color: #00d4ff;
+    transform: translateY(-3px);
+    color: #ffffff;
+}
+
+.arena-option span {
+    color: #00d4ff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.arena-option h3 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 12px 0;
+}
+
+.arena-option p {
+    color: #9ca6b4;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* COLUMNA DERECHA */
+
+.arena-right {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.arena-panel {
+    background: #141619;
+    border: 1px solid #292e36;
+    border-radius: 6px;
+    padding: 22px;
+    overflow-wrap: anywhere;
+}
+
+.arena-panel h2 {
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.arena-panel p {
+    color: #aeb8c5;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.arena-panel iframe {
+    border-radius: 5px;
+}
+
+/* BOTONES */
+
+.arena-button,
+.arena-outline {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.5px;
+    transition: 0.2s;
+}
+
+.arena-button {
+    background: #00c5e5;
+    border: 1px solid #00c5e5;
+    color: #080b10;
+}
+
+.arena-button:hover {
+    background: #65eaff;
+    color: #080b10;
+}
+
+.arena-outline {
+    background: transparent;
+    color: #00d4ff;
+    border: 1px solid #00d4ff;
+}
+
+.arena-outline:hover {
+    background: #00d4ff;
+    color: #080b10;
+}
+
+.arena-right .arena-button,
+.arena-right .arena-outline {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.arena-text-link {
+    color: #00d4ff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.arena-text-link:hover {
+    color: #ffffff;
+}
+
+/* ADAPTACIÓN A PANTALLAS PEQUEÑAS */
+
+@media (max-width: 1100px) {
+    .arena-dashboard {
+        grid-template-columns: 180px minmax(0, 1fr);
+    }
+
+    .arena-right {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .arena-dashboard {
+        grid-template-columns: 1fr;
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .arena-sidebar {
+        padding: 10px;
+    }
+
+    .arena-options,
+    .arena-right {
+        grid-template-columns: 1fr;
+    }
+
+    .arena-hero {
+        padding: 30px 20px;
+    }
+}
+
+/* =====================================
+   BARRA SUPERIOR PROFESIONAL
+===================================== */
+
+.arena-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+    min-height: 80px;
+    padding: 15px 35px;
+    background: #111111;
+    border-bottom: 1px solid #292929;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* NUEVO LOGO */
+
+.arena-top-logo {
+    display: block;
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.arena-top-logo span {
+    color: #00d4ff;
+}
+
+.arena-top-logo small {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 6px;
+    margin-top: 7px;
+    color: #aeb8c5;
+}
+
+.arena-top-logo:hover {
+    color: #ffffff;
+}
+
+/* MENÚ PRINCIPAL */
+
+.arena-top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.arena-top-nav a {
+    position: relative;
+    color: #d4d4d4;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    padding: 15px 0;
+    transition: color 0.2s;
+}
+
+.arena-top-nav a:hover,
+.arena-top-nav a.activo {
+    color: #00d4ff;
+}
+
+.arena-top-nav a.activo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #00d4ff;
+    border-radius: 3px;
+}
+
+/* CUENTA DE USUARIO */
+
+.arena-top-account {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    white-space: nowrap;
+}
+
+.arena-register-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.arena-register-link:hover {
+    color: #00d4ff;
+}
+
+.arena-login-button {
+    display: inline-block;
+    background: #00c5e5;
+    color: #08090b;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.arena-login-button:hover {
+    background: #65eaff;
+    color: #08090b;
+}
+
+/* FONDO UNIFORME */
+
+body {
+    background: #090a0c;
+}
+
+/* ADAPTACIÓN A PANTALLAS PEQUEÑAS */
+
+@media (max-width: 1100px) {
+    .arena-topbar {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 18px 25px;
+    }
+
+    .arena-top-nav {
+        order: 3;
+        width: 100%;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .arena-topbar {
+        position: static;
+        padding: 15px;
+    }
+
+    .arena-top-logo {
+        font-size: 19px;
+    }
+
+    .arena-top-nav {
+        gap: 15px;
+    }
+
+    .arena-top-nav a {
+        font-size: 11px;
+    }
+
+    .arena-top-account {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .arena-login-button {
+        padding: 10px 12px;
+        font-size: 10px;
+    }
+}
+
+/* CORRECCIÓN DEL MENÚ SUPERIOR */
+
+.arena-topbar .arena-top-nav {
+    background: transparent !important;
+    background-image: none !important;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.arena-topbar .arena-top-nav a {
+    background: transparent;
+    color: #d4d4d4;
+}
+
+.arena-topbar .arena-top-nav a:hover,
+.arena-topbar .arena-top-nav a.activo {
+    color: #00d4ff;
+    background: transparent;
+}
+
+
+/* =====================================
+   PÁGINA PROFESIONAL DE TORNEOS
+===================================== */
+
+.arena-torneos-page {
+    width: 100%;
+    max-width: 1600px;
+    min-height: 85vh;
+    margin: 0 auto;
+    padding: 45px 35px;
+    background: #090a0c;
+    color: #f1f5f9;
+    text-align: left;
+}
+
+.arena-torneos-page > section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* ENCABEZADO DE PÁGINA */
+
+.arena-page-heading {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #292e36;
+}
+
+.arena-page-heading h2 {
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 15px 0;
+}
+
+.arena-page-heading p {
+    color: #94a3b8;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* DISTRIBUCIÓN DE TORNEOS */
+
+.arena-torneos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* TARJETA */
+
+.arena-torneos-page .arena-torneo-card {
+    display: flex;
+    flex-direction: column;
+    background: #15171b;
+    border: 1px solid #292e36;
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: none;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.arena-torneos-page .arena-torneo-card:hover {
+    border-color: #00d4ff;
+    transform: translateY(-4px);
+}
+
+/* ENCABEZADO DE TARJETA */
+
+.arena-torneo-header {
+    padding: 25px;
+    background:
+        radial-gradient(
+            ellipse at top right,
+            #123b49,
+            transparent 70%
+        ),
+        linear-gradient(135deg, #19242e, #101317);
+    border-bottom: 1px solid #292e36;
+}
+
+.arena-torneo-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.arena-torneo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #ffffff0a;
+    border: 1px solid #ffffff20;
+    border-radius: 8px;
+    font-size: 25px;
+}
+
+.arena-torneo-estado {
+    padding: 7px 12px;
+    border-radius: 4px;
+    background: #ffffff08;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.arena-torneo-estado.estado-abierto {
+    color: #34d399;
+    background: #34d39915;
+    border: 1px solid #34d39935;
+}
+
+.arena-torneo-estado.estado-curso {
+    color: #fbbf24;
+    background: #fbbf2415;
+    border: 1px solid #fbbf2435;
+}
+
+.arena-torneo-estado.estado-finalizado {
+    color: #f87171;
+    background: #f8717115;
+    border: 1px solid #f8717135;
+}
+
+.arena-torneo-juego {
+    color: #00d4ff;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.arena-torneo-header h3 {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* INFORMACIÓN DEL TORNEO */
+
+.arena-torneo-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 25px;
+}
+
+.arena-torneo-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 15px;
+    margin-bottom: 25px;
+}
+
+.arena-torneo-info span {
+    display: block;
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 7px;
+}
+
+.arena-torneo-info strong {
+    display: block;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* BOTÓN DE INSCRIPCIÓN */
+
+.arena-torneo-card .arena-torneo-button {
+    width: 100%;
+    margin-top: auto;
+    padding: 14px;
+    border: 1px solid #00c5e5;
+    border-radius: 5px;
+    background: #00c5e5;
+    color: #08090b;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.arena-torneo-card .arena-torneo-button:hover:not(:disabled) {
+    background: #65eaff;
+}
+
+.arena-torneo-card .arena-torneo-button:disabled {
+    background: #252c34;
+    border-color: #354155;
+    color: #94a3b8;
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+/* MENSAJES DE CARGA Y LISTA VACÍA */
+
+.arena-torneo-message {
+    padding: 30px;
+    background: #15171b;
+    border: 1px solid #292e36;
+    border-radius: 8px;
+    color: #94a3b8;
+}
+
+.arena-torneo-message p {
+    margin: 0;
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .arena-torneos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .arena-torneos-page {
+        padding: 25px 15px;
+    }
+
+    .arena-torneos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .arena-page-heading h2 {
+        font-size: 28px;
+    }
+}
+
+
+/* =====================================
+   PÁGINA PROFESIONAL DE EQUIPOS
+===================================== */
+
+.arena-equipos-page {
+    width: 100%;
+    max-width: 1600px;
+    min-height: 85vh;
+    margin: 0 auto;
+    padding: 45px 35px;
+    background: #090a0c;
+    color: #f1f5f9;
+    text-align: left;
+}
+
+.arena-equipos-page > section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* DISTRIBUCIÓN DE EQUIPOS */
+
+.arena-equipos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* TARJETA DEL EQUIPO */
+
+.arena-equipos-page .arena-equipo-card {
+    display: flex;
+    flex-direction: column;
+    background: #15171b;
+    border: 1px solid #292e36;
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: none;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.arena-equipos-page .arena-equipo-card:hover {
+    transform: translateY(-4px);
+    border-color: #00d4ff;
+}
+
+/* ENCABEZADO */
+
+.arena-equipo-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 35px 20px;
+    background:
+        radial-gradient(
+            ellipse at top,
+            #123b49,
+            transparent 75%
+        ),
+        linear-gradient(135deg, #19242e, #101317);
+    border-bottom: 1px solid #292e36;
+}
+
+/* AVATAR CON INICIALES */
+
+.arena-equipo-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    height: 85px;
+    margin-bottom: 20px;
+    background: #0b151e;
+    border: 1px solid #00d4ff;
+    border-radius: 12px;
+    color: #00d4ff;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    box-shadow: 0 0 25px #00d4ff12;
+}
+
+/* NOMBRE DEL EQUIPO */
+
+.arena-equipo-header h3 {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 800;
+    margin: 0 0 12px;
+    overflow-wrap: anywhere;
+}
+
+.arena-equipo-juego {
+    color: #00d4ff;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* INFORMACIÓN */
+
+.arena-equipo-body {
+    flex: 1;
+    padding: 10px 25px;
+}
+
+.arena-equipo-fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid #292e36;
+}
+
+.arena-equipo-fila:last-child {
+    border-bottom: none;
+}
+
+.arena-equipo-fila > span:first-child {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.arena-equipo-fila strong {
+    color: #ffffff;
+    font-size: 14px;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* ESTADOS */
+
+.arena-equipo-estado {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.arena-equipo-estado.text-success {
+    color: #34d399 !important;
+    background: #34d39915;
+    border: 1px solid #34d39935;
+}
+
+.arena-equipo-estado.text-danger {
+    color: #f87171 !important;
+    background: #f8717115;
+    border: 1px solid #f8717135;
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .arena-equipos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .arena-equipos-page {
+        padding: 25px 15px;
+    }
+
+    .arena-equipos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================
+   PÁGINA PROFESIONAL DE PARTIDAS
+===================================== */
+
+.arena-partidas-page {
+    width: 100%;
+    max-width: 1600px;
+    min-height: 85vh;
+    margin: 0 auto;
+    padding: 45px 35px;
+    background: #090a0c;
+    color: #f1f5f9;
+    text-align: left;
+}
+
+.arena-partidas-page > section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* DISTRIBUCIÓN DE PARTIDAS */
+
+.arena-partidas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* TARJETA PRINCIPAL */
+
+.arena-partidas-page .arena-partida-card {
+    display: flex;
+    flex-direction: column;
+    background: #15171b;
+    border: 1px solid #292e36;
+    border-radius: 8px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: none;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.arena-partidas-page .arena-partida-card:hover {
+    border-color: #00d4ff;
+    transform: translateY(-3px);
+}
+
+/* ENCABEZADO DE PARTIDA */
+
+.arena-partida-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px;
+    background: #191c21;
+    border-bottom: 1px solid #292e36;
+}
+
+.arena-partida-header h3 {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* ESTADOS DE PARTIDA */
+
+.arena-partida-estado {
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.arena-partida-estado.text-success {
+    color: #34d399 !important;
+    background: #34d39915;
+    border: 1px solid #34d39935;
+}
+
+.arena-partida-estado.text-primary {
+    color: #38bdf8 !important;
+    background: #38bdf815;
+    border: 1px solid #38bdf835;
+}
+
+.arena-partida-estado.text-warning {
+    color: #fbbf24 !important;
+    background: #fbbf2415;
+    border: 1px solid #fbbf2435;
+}
+
+/* ENFRENTAMIENTO */
+
+.arena-partida-enfrentamiento {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 15px;
+    padding: 35px 20px;
+    background:
+        radial-gradient(
+            ellipse at top,
+            #12313d,
+            transparent 80%
+        ),
+        #15171b;
+}
+
+/* EQUIPOS */
+
+.arena-partida-equipo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.arena-partida-posicion {
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* AVATAR CON INICIALES */
+
+.arena-partida-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    background: #0b151e;
+    border: 1px solid #00d4ff;
+    border-radius: 10px;
+    color: #00d4ff;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.arena-partida-equipo h4 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/* MARCADOR CENTRAL */
+
+.arena-partida-marcador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 75px;
+}
+
+.arena-partida-marcador strong {
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.2;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.arena-partida-marcador strong span {
+    color: #64748b;
+}
+
+.arena-partida-marcador small {
+    color: #94a3b8;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-top: 8px;
+}
+
+.arena-partida-marcador .arena-partida-vs {
+    color: #00d4ff;
+    font-size: 30px;
+}
+
+/* INFORMACIÓN ADICIONAL */
+
+.arena-partida-detalles {
+    flex: 1;
+    padding: 5px 20px;
+    background: #101317;
+    border-top: 1px solid #292e36;
+}
+
+.arena-partida-fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px 0;
+    border-bottom: 1px solid #292e36;
+}
+
+.arena-partida-fila:last-child {
+    border-bottom: none;
+}
+
+.arena-partida-fila > span {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.arena-partida-fila strong {
+    color: #ffffff;
+    font-size: 13px;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.arena-partida-fila strong.text-success {
+    color: #34d399 !important;
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .arena-partidas-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .arena-partidas-page {
+        padding: 25px 15px;
+    }
+
+    .arena-partida-enfrentamiento {
+        padding: 25px 10px;
+        gap: 8px;
+    }
+
+    .arena-partida-avatar {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+    }
+
+    .arena-partida-marcador strong {
+        font-size: 28px;
+    }
+
+    .arena-partida-equipo h4 {
+        font-size: 13px;
+    }
+}
+
+
+/* =====================================
+   PÁGINA PROFESIONAL DE RANKING
+===================================== */
+
+.arena-ranking-page {
+    width: 100%;
+    max-width: 1600px;
+    min-height: 85vh;
+    margin: 0 auto;
+    padding: 45px 35px;
+    background: #090a0c;
+    color: #f1f5f9;
+    text-align: left;
+}
+
+.arena-ranking-page > section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* PANEL DE CLASIFICACIÓN */
+
+.arena-ranking-panel {
+    background: #15171b;
+    border: 1px solid #292e36;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ENCABEZADO DEL PANEL */
+
+.arena-ranking-header {
+    padding: 30px;
+    background:
+        radial-gradient(
+            ellipse at top right,
+            #123b49,
+            transparent 70%
+        ),
+        #15171b;
+    border-bottom: 1px solid #292e36;
+}
+
+.arena-ranking-header h3 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* TABLA RESPONSIVE */
+
+.arena-ranking-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.arena-ranking-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    background: #15171b;
+    color: #f1f5f9;
+    margin: 0;
+}
+
+/* ENCABEZADOS DE COLUMNAS */
+
+.arena-ranking-table thead {
+    background: #101317;
+}
+
+.arena-ranking-table th {
+    padding: 20px 25px;
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #292e36;
+    text-align: center;
+}
+
+.arena-ranking-table th:nth-child(2) {
+    text-align: left;
+    width: 40%;
+}
+
+/* FILAS DE CLASIFICACIÓN */
+
+.arena-ranking-table td {
+    padding: 22px 25px;
+    background: transparent;
+    border-bottom: 1px solid #292e36;
+    color: #f1f5f9;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.arena-ranking-table tbody tr {
+    transition: background 0.2s;
+}
+
+.arena-ranking-table tbody tr:hover {
+    background: #1b222a;
+}
+
+.arena-ranking-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* POSICIONES */
+
+.arena-ranking-posicion {
+    color: #94a3b8;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.arena-ranking-posicion.primer-lugar {
+    color: #fbbf24;
+}
+
+/* EQUIPOS */
+
+.arena-ranking-equipo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-align: left;
+}
+
+.arena-ranking-equipo strong {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* AVATARES CON INICIALES */
+
+.arena-ranking-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: #0b151e;
+    border: 1px solid #00d4ff50;
+    border-radius: 8px;
+    color: #00d4ff;
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+/* ESTADÍSTICAS */
+
+.arena-ranking-table td.arena-ranking-victorias {
+    color: #34d399;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.arena-ranking-table td.arena-ranking-derrotas {
+    color: #f87171;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.arena-ranking-table td.arena-ranking-puntos {
+    color: #00d4ff;
+    font-size: 26px;
+    font-weight: 900;
+}
+
+/* PIE DE TABLA */
+
+.arena-ranking-footer {
+    padding: 18px 25px;
+    background: #101317;
+    border-top: 1px solid #292e36;
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 768px) {
+    .arena-ranking-page {
+        padding: 25px 15px;
+    }
+
+    .arena-ranking-header {
+        padding: 20px;
+    }
+
+    .arena-ranking-table th,
+    .arena-ranking-table td {
+        padding: 15px;
+    }
+
+    .arena-ranking-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .arena-ranking-equipo strong {
+        font-size: 14px;
+    }
+}
+
+
+/* =====================================
+   PÁGINA PROFESIONAL DE LOGIN
+===================================== */
+
+.arena-login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 85vh;
+    padding: 45px 30px;
+    background: #090a0c;
+    color: #f1f5f9;
+    text-align: left;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.arena-login-page .arena-login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 0;
+    background: #15171b;
+    border: 1px solid #292e36;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px #00000050;
+}
+
+/* PANEL IZQUIERDO */
+
+.arena-login-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 50px;
+    background:
+        radial-gradient(
+            ellipse at top left,
+            #164e63,
+            transparent 65%
+        ),
+        linear-gradient(
+            135deg,
+            #10232d,
+            #0b1017
+        );
+    border-right: 1px solid #292e36;
+}
+
+.arena-login-brand-content {
+    width: 100%;
+}
+
+/* ICONO GAMER */
+
+.arena-login-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 25px;
+    background: #00d4ff12;
+    border: 1px solid #00d4ff50;
+    border-radius: 12px;
+    font-size: 36px;
+}
+
+/* LOGO */
+
+.arena-login-logo {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.arena-login-logo span {
+    color: #00d4ff;
+}
+
+.arena-login-logo small {
+    display: block;
+    margin-top: 8px;
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 6px;
+}
+
+.arena-login-line {
+    width: 60px;
+    height: 3px;
+    margin: 30px 0;
+    background: #00d4ff;
+}
+
+/* PRESENTACIÓN */
+
+.arena-login-brand h1 {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.15;
+    margin: 15px 0 20px;
+}
+
+.arena-login-brand h1 span {
+    color: #00d4ff;
+}
+
+.arena-login-brand p {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* CARACTERÍSTICAS */
+
+.arena-login-features {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.arena-login-features div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.arena-login-features span {
+    color: #00d4ff;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.arena-login-brand-footer {
+    margin-top: 45px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* PANEL DERECHO */
+
+.arena-login-access {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background: #15171b;
+}
+
+.arena-login-form-content {
+    width: 100%;
+    max-width: 400px;
+}
+
+.arena-login-access h2 {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 800;
+    margin: 15px 0 10px;
+}
+
+.arena-login-description {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+/* FORMULARIO */
+
+.arena-login-page .arena-login-form {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.arena-login-field {
+    margin-bottom: 25px;
+}
+
+.arena-login-field label {
+    display: block;
+    color: #e2e8f0;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* INPUTS */
+
+.arena-login-page .arena-login-field input {
+    width: 100%;
+    height: 52px;
+    padding: 12px 16px;
+    background: #101317;
+    border: 1px solid #303842;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.arena-login-page .arena-login-field input::placeholder {
+    color: #64748b;
+}
+
+.arena-login-page .arena-login-field input:focus {
+    background: #101317;
+    color: #ffffff;
+    border-color: #00d4ff;
+    outline: none;
+    box-shadow: 0 0 0 3px #00d4ff15;
+}
+
+/* BOTÓN DE INICIO DE SESIÓN */
+
+.arena-login-page .arena-login-button {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin-top: 10px;
+    background: #00d4ff;
+    color: #090a0c;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.arena-login-page .arena-login-button:hover:not(:disabled) {
+    background: #67e8f9;
+    transform: translateY(-2px);
+}
+
+.arena-login-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ENLACE DE REGISTRO */
+
+.arena-login-register {
+    margin-top: 25px;
+    color: #94a3b8;
+    font-size: 13px;
+    text-align: center;
+}
+
+.arena-login-register a {
+    color: #00d4ff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.arena-login-register a:hover {
+    text-decoration: underline;
+}
+
+/* INFORMACIÓN DE ACCESO */
+
+.arena-login-security {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #292e36;
+    color: #64748b;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 900px) {
+    .arena-login-page .arena-login-container {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .arena-login-brand {
+        padding: 35px;
+        border-right: none;
+        border-bottom: 1px solid #292e36;
+    }
+
+    .arena-login-brand h1 {
+        font-size: 28px;
+    }
+
+    .arena-login-access {
+        padding: 35px;
+    }
+
+    .arena-login-brand-footer {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .arena-login-page {
+        padding: 20px 15px;
+    }
+
+    .arena-login-brand,
+    .arena-login-access {
+        padding: 25px;
+    }
+
+    .arena-login-access h2 {
+        font-size: 28px;
+    }
+}
+
+
+/* =====================================
+   PÁGINA PROFESIONAL DE REGISTRO
+===================================== */
+
+.arena-registro-page .arena-registro-container {
+    max-width: 1200px;
+    min-height: 760px;
+}
+
+/* AJUSTES DEL FORMULARIO */
+
+.arena-registro-page .arena-login-form-content {
+    max-width: 440px;
+}
+
+.arena-registro-page .arena-login-access {
+    padding: 40px 50px;
+}
+
+.arena-registro-page .arena-login-description {
+    margin-bottom: 25px;
+}
+
+.arena-registro-page .arena-login-field {
+    margin-bottom: 18px;
+}
+
+.arena-registro-page .arena-login-field input {
+    height: 48px;
+}
+
+/* VALIDACIONES DE CAMPOS */
+
+.arena-registro-page .arena-login-field input.is-invalid {
+    border-color: #f87171;
+    background-image: none;
+}
+
+.arena-registro-page .arena-login-field input.is-invalid:focus {
+    border-color: #f87171;
+    box-shadow: 0 0 0 3px #f8717115;
+}
+
+.arena-registro-page .invalid-feedback {
+    display: block;
+    color: #f87171;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+/* MENSAJE DE REGISTRO EXITOSO */
+
+.arena-registro-page .alert-success {
+    background: #34d39915;
+    color: #34d399;
+    border: 1px solid #34d39940;
+}
+
+/* MENSAJE DE ERROR */
+
+.arena-registro-page .alert-danger {
+    background: #f8717115;
+    color: #f87171;
+    border: 1px solid #f8717140;
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 900px) {
+    .arena-registro-page .arena-registro-container {
+        max-width: 600px;
+        min-height: auto;
+    }
+
+    .arena-registro-page .arena-login-access {
+        padding: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .arena-registro-page .arena-login-access {
+        padding: 25px;
+    }
+}
+
+
+/* =====================================
+   PÁGINA PROFESIONAL DE INSCRIPCIÓN
+===================================== */
+
+.arena-inscripcion-page {
+    width: 100%;
+    max-width: 1600px;
+    min-height: 85vh;
+    margin: 0 auto;
+    padding: 45px 35px;
+    background: #090a0c;
+    color: #f1f5f9;
+    text-align: left;
+}
+
+.arena-inscripcion-page > section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* DISTRIBUCIÓN DE PANELES */
+
+.arena-inscripcion-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* PANEL DEL FORMULARIO */
+
+.arena-inscripcion-panel {
+    background: #15171b;
+    border: 1px solid #292e36;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.arena-inscripcion-panel h3 {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.arena-inscripcion-description {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+/* FORMULARIO */
+
+.arena-inscripcion-page .arena-inscripcion-form {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.arena-inscripcion-field {
+    margin-bottom: 28px;
+}
+
+.arena-inscripcion-field label {
+    display: block;
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* SELECTORES */
+
+.arena-inscripcion-page .arena-inscripcion-field select {
+    width: 100%;
+    height: 55px;
+    padding: 12px 40px 12px 16px;
+    background-color: #101317;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 14px;
+    border: 1px solid #303842;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.arena-inscripcion-page .arena-inscripcion-field select:focus {
+    border-color: #00d4ff;
+    outline: none;
+    box-shadow: 0 0 0 3px #00d4ff15;
+}
+
+.arena-inscripcion-field select option {
+    background: #15171b;
+    color: #ffffff;
+}
+
+.arena-inscripcion-field select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* VALIDACIONES */
+
+.arena-inscripcion-page .arena-inscripcion-field select.is-invalid {
+    border-color: #f87171;
+}
+
+.arena-inscripcion-field small.text-danger {
+    display: block;
+    color: #f87171 !important;
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+/* BOTÓN PRINCIPAL */
+
+.arena-inscripcion-page .arena-inscripcion-button {
+    display: block;
+    width: 100%;
+    padding: 17px;
+    background: #00d4ff;
+    border: none;
+    border-radius: 6px;
+    color: #090a0c;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.arena-inscripcion-button:hover:not(:disabled) {
+    background: #67e8f9;
+    transform: translateY(-2px);
+}
+
+.arena-inscripcion-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* MENSAJES */
+
+.arena-inscripcion-page .alert-success {
+    background: #34d39915;
+    color: #34d399;
+    border: 1px solid #34d39940;
+}
+
+.arena-inscripcion-page .alert-danger {
+    background: #f8717115;
+    color: #f87171;
+    border: 1px solid #f8717140;
+}
+
+.arena-inscripcion-note {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #292e36;
+    color: #94a3b8;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* PANEL INFORMATIVO */
+
+.arena-inscripcion-page .arena-inscripcion-info {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background:
+        radial-gradient(
+            ellipse at top left,
+            #164e63,
+            transparent 65%
+        ),
+        linear-gradient(
+            135deg,
+            #10232d,
+            #0b1017
+        );
+    border: 1px solid #29404b;
+    border-radius: 10px;
+}
+
+/* ICONO DEL TROFEO */
+
+.arena-inscripcion-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 25px;
+    background: #00d4ff12;
+    border: 1px solid #00d4ff50;
+    border-radius: 12px;
+    font-size: 36px;
+}
+
+.arena-inscripcion-info h3 {
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.arena-inscripcion-info h3 span {
+    color: #00d4ff;
+}
+
+.arena-inscripcion-info p {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* PASOS DE INSCRIPCIÓN */
+
+.arena-inscripcion-pasos {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.arena-inscripcion-paso {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.arena-inscripcion-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    background: #00d4ff15;
+    border: 1px solid #00d4ff30;
+    border-radius: 6px;
+    color: #00d4ff;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.arena-inscripcion-paso h4 {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 5px;
+}
+
+.arena-inscripcion-paso p {
+    color: #94a3b8;
+    font-size: 12px;
+    margin: 0;
+}
+
+.arena-inscripcion-footer {
+    margin-top: auto;
+    padding-top: 40px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 900px) {
+    .arena-inscripcion-grid {
+        grid-template-columns: 1fr;
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 768px) {
+    .arena-inscripcion-page {
+        padding: 25px 15px;
+    }
+
+    .arena-inscripcion-panel,
+    .arena-inscripcion-page .arena-inscripcion-info {
+        padding: 25px;
+    }
+
+    .arena-inscripcion-info h3 {
+        font-size: 28px;
+    }
+
+    .arena-inscripcion-panel h3 {
+        font-size: 25px;
+    }
+}

@@ -3,17 +3,70 @@ import { useEffect, useState } from 'react';
 
 const API = 'http://localhost:8080';
 
-function TarjetaRanking({ equipo }) {
-  return (
-    <article className="h-100">
-      <h3>
-        #{equipo.posicion} - {equipo.nombre}
-      </h3>
+// Generar iniciales únicamente para el diseño
+function obtenerIniciales(nombre) {
+  return String(nombre || '')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .map(palabra => palabra[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase() || '?';
+}
 
-      <p>Puntos: {equipo.puntos}</p>
-      <p>Victorias: {equipo.victorias}</p>
-      <p>Derrotas: {equipo.derrotas}</p>
-    </article>
+// Fila de clasificación
+function FilaRanking({ equipo }) {
+  return (
+    <tr>
+
+      {/* POSICIÓN */}
+
+      <td>
+        <span
+          className={`arena-ranking-posicion ${
+            Number(equipo.posicion) === 1
+              ? 'primer-lugar'
+              : ''
+          }`}
+        >
+          #{equipo.posicion}
+        </span>
+      </td>
+
+      {/* EQUIPO */}
+
+      <td>
+        <div className="arena-ranking-equipo">
+
+          <div className="arena-ranking-avatar">
+            {obtenerIniciales(equipo.nombre)}
+          </div>
+
+          <strong>{equipo.nombre}</strong>
+
+        </div>
+      </td>
+
+      {/* VICTORIAS */}
+
+      <td className="arena-ranking-victorias">
+        {equipo.victorias}
+      </td>
+
+      {/* DERROTAS */}
+
+      <td className="arena-ranking-derrotas">
+        {equipo.derrotas}
+      </td>
+
+      {/* PUNTOS */}
+
+      <td className="arena-ranking-puntos">
+        {equipo.puntos}
+      </td>
+
+    </tr>
   );
 }
 
@@ -98,37 +151,103 @@ export default function Ranking() {
   }, []);
 
   return (
-    <main className="container-fluid pagina-ranking py-4">
+    <main className="arena-ranking-page">
+
       <section>
-        <h2>Ranking</h2>
 
-        <p>
-          Revisa la clasificación de los equipos participantes.
-        </p>
+        {/* ENCABEZADO DE PÁGINA */}
 
-        {cargando && <p>Cargando ranking...</p>}
+        <div className="arena-page-heading">
 
-        {error && (
-          <p className="text-danger">{error}</p>
-        )}
+          <span className="arena-label">
+            ESPORTS ARENA / CLASIFICACIÓN
+          </span>
 
-        {!cargando && !error && ranking.length === 0 && (
-          <p>No hay equipos registrados en el ranking.</p>
-        )}
+          <h2>Power Rankings</h2>
 
-        {!cargando && !error && ranking.length > 0 && (
-          <div className="row g-3">
-            {ranking.map((equipo) => (
-              <div
-                className="col-12 col-md-6 col-xl-4"
-                key={equipo.rankingId}
-              >
-                <TarjetaRanking equipo={equipo} />
-              </div>
-            ))}
+          <p>
+            Revisa la clasificación de los equipos participantes.
+          </p>
+
+        </div>
+
+        {/* ESTADO DE CARGA */}
+
+        {cargando && (
+          <div className="arena-torneo-message">
+            <p>Cargando ranking...</p>
           </div>
         )}
+
+        {/* MENSAJE DE ERROR */}
+
+        {error && (
+          <div className="alert alert-danger" role="alert">
+            {error}
+          </div>
+        )}
+
+        {/* LISTA VACÍA */}
+
+        {!cargando && !error && ranking.length === 0 && (
+          <div className="arena-torneo-message">
+            <p>No hay equipos registrados en el ranking.</p>
+          </div>
+        )}
+
+        {/* TABLA DE CLASIFICACIÓN */}
+
+        {!cargando && !error && ranking.length > 0 && (
+          <div className="arena-ranking-panel">
+
+            <div className="arena-ranking-header">
+
+              <span className="arena-label">
+                CLASIFICACIÓN COMPETITIVA
+              </span>
+
+              <h3>Clasificación general</h3>
+
+            </div>
+
+            <div className="arena-ranking-scroll">
+
+              <table className="arena-ranking-table">
+
+                <thead>
+                  <tr>
+                    <th scope="col">Posición</th>
+                    <th scope="col">Equipo</th>
+                    <th scope="col">Victorias</th>
+                    <th scope="col">Derrotas</th>
+                    <th scope="col">Puntos</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                  {ranking.map((equipo) => (
+                    <FilaRanking
+                      key={equipo.rankingId}
+                      equipo={equipo}
+                    />
+                  ))}
+
+                </tbody>
+
+              </table>
+
+            </div>
+
+            <div className="arena-ranking-footer">
+              Clasificación de equipos · eSports Arena Manager
+            </div>
+
+          </div>
+        )}
+
       </section>
+
     </main>
   );
 }

@@ -44,34 +44,77 @@ function TarjetaTorneo({ torneo, perfil, nombreJuego }) {
   }
 
   return (
-    <article className="h-100">
-      <h3>{torneo.nombre}</h3>
+    <article className="arena-torneo-card h-100">
 
-      <p>Juego: {nombreJuego}</p>
+      {/* ENCABEZADO DEL TORNEO */}
 
-      <p>Modalidad: {torneo.modalidad}</p>
+      <div className="arena-torneo-header">
 
-      <p>Cupos máximos: {torneo.cupoMaximo}</p>
+        <div className="arena-torneo-top">
 
-      <p>
-        Fecha inicio: {torneo.fechaInicio || 'Sin fecha'}
-      </p>
+          <span className="arena-torneo-icon">
+            🏆
+          </span>
 
-      <p>
-        Fecha término: {torneo.fechaFin || 'Sin fecha'}
-      </p>
+          <span
+            className={`arena-torneo-estado ${clasesEstado[torneo.estado] || ''}`}
+          >
+            Estado: {torneo.estado}
+          </span>
 
-      <p className={clasesEstado[torneo.estado] || ''}>
-        Estado: {torneo.estado}
-      </p>
+        </div>
 
-      <button
-        type="button"
-        disabled={!accion.habilitado}
-        onClick={manejarAccion}
-      >
-        {accion.texto}
-      </button>
+        <p className="arena-torneo-juego">
+          Juego: {nombreJuego}
+        </p>
+
+        <h3>{torneo.nombre}</h3>
+
+      </div>
+
+      {/* INFORMACIÓN DEL TORNEO */}
+
+      <div className="arena-torneo-body">
+
+        <div className="arena-torneo-info">
+
+          <div>
+            <span>Modalidad:</span>
+            <strong>{torneo.modalidad}</strong>
+          </div>
+
+          <div>
+            <span>Cupos máximos:</span>
+            <strong>{torneo.cupoMaximo}</strong>
+          </div>
+
+          <div>
+            <span>Fecha inicio:</span>
+            <strong>
+              {torneo.fechaInicio || 'Sin fecha'}
+            </strong>
+          </div>
+
+          <div>
+            <span>Fecha término:</span>
+            <strong>
+              {torneo.fechaFin || 'Sin fecha'}
+            </strong>
+          </div>
+
+        </div>
+
+        <button
+          type="button"
+          className="arena-torneo-button"
+          disabled={!accion.habilitado}
+          onClick={manejarAccion}
+        >
+          {accion.texto}
+        </button>
+
+      </div>
+
     </article>
   );
 }
@@ -173,18 +216,36 @@ export default function Torneos() {
   }, []);
 
   return (
-    <main className="container-fluid pagina-torneos py-4">
-      <section>
-        <h2>Torneos disponibles</h2>
+    <main className="arena-torneos-page">
 
-        <p>
-          Aquí podrás revisar los torneos disponibles,
-          su modalidad, fechas, cupos y estado actual.
-        </p>
+      <section>
+
+        {/* TÍTULO DE LA PÁGINA */}
+
+        <div className="arena-page-heading">
+
+          <span className="arena-label">
+            ESPORTS ARENA / COMPETICIONES
+          </span>
+
+          <h2>Torneos disponibles</h2>
+
+          <p>
+            Aquí podrás revisar los torneos disponibles,
+            su modalidad, fechas, cupos y estado actual.
+          </p>
+
+        </div>
+
+        {/* ESTADO DE CARGA */}
 
         {cargando && (
-          <p>Cargando torneos...</p>
+          <div className="arena-torneo-message">
+            <p>Cargando torneos...</p>
+          </div>
         )}
+
+        {/* MENSAJE DE ERROR */}
 
         {error && (
           <div className="alert alert-danger" role="alert">
@@ -192,17 +253,22 @@ export default function Torneos() {
           </div>
         )}
 
+        {/* SIN TORNEOS */}
+
         {!cargando && !error && torneos.length === 0 && (
-          <p>No hay torneos registrados.</p>
+          <div className="arena-torneo-message">
+            <p>No hay torneos registrados.</p>
+          </div>
         )}
 
+        {/* LISTADO DE TORNEOS REALES */}
+
         {!cargando && !error && (
-          <div className="row g-3">
+          <div className="arena-torneos-grid">
+
             {torneos.map(torneo => (
-              <div
-                className="col-12 col-md-6 col-xl-4"
-                key={torneo.torneoId}
-              >
+              <div key={torneo.torneoId}>
+
                 <TarjetaTorneo
                   torneo={torneo}
                   perfil={perfil}
@@ -211,11 +277,15 @@ export default function Torneos() {
                     `Juego ID: ${torneo.juegoId}`
                   }
                 />
+
               </div>
             ))}
+
           </div>
         )}
+
       </section>
+
     </main>
   );
 }

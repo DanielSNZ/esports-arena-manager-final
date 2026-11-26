@@ -23,10 +23,13 @@ public class AuthService {
     public AuthService(UsuarioRepository usuarioRepository,
                        PasswordEncoder passwordEncoder,
                        JwtService jwtService) {
+
         this.usuarioRepository = usuarioRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
     }
+
+    // REGISTRO DE USUARIO
 
     @Transactional
     public AuthResponse register(RegisterRequest request) {
@@ -44,9 +47,17 @@ public class AuthService {
         usuario.setNombre(request.getNombre());
         usuario.setNickname(request.getNickname());
         usuario.setEmail(request.getEmail());
-        usuario.setPassword(passwordEncoder.encode(request.getPassword()));
-        usuario.setRol(request.getRol());
-        usuario.setEstado(request.getEstado());
+
+        usuario.setPassword(
+                passwordEncoder.encode(request.getPassword())
+        );
+
+        // SEGURIDAD: el backend asigna el rol inicial.
+        usuario.setRol("USER");
+
+        // SEGURIDAD: el backend asigna el estado inicial.
+        usuario.setEstado("ACTIVO");
+
         usuario.setFechaRegistro(request.getFechaRegistro());
 
         this.usuarioRepository.save(usuario);
@@ -54,15 +65,22 @@ public class AuthService {
         return construirRespuesta(usuario);
     }
 
+    // INICIO DE SESIÓN
+
     @Transactional(readOnly = true)
     public AuthResponse login(LoginRequest request) {
-        Usuario usuario = this.usuarioRepository.findByEmail(request.getEmail())
+
+        Usuario usuario = this.usuarioRepository
+                .findByEmail(request.getEmail())
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.UNAUTHORIZED,
                         "Credenciales inválidas"
                 ));
 
-        if (!this.passwordEncoder.matches(request.getPassword(), usuario.getPassword())) {
+        if (!this.passwordEncoder.matches(
+                request.getPassword(),
+                usuario.getPassword())) {
+
             throw new ResponseStatusException(
                     HttpStatus.UNAUTHORIZED,
                     "Credenciales inválidas"
@@ -72,7 +90,10 @@ public class AuthService {
         return construirRespuesta(usuario);
     }
 
+    // GENERACIÓN DE RESPUESTA Y TOKEN JWT
+
     private AuthResponse construirRespuesta(Usuario usuario) {
+
         String token = this.jwtService.generarToken(usuario);
 
         return new AuthResponse(

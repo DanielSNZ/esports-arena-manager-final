@@ -79,7 +79,9 @@ public class InscripcionServiceImpl implements InscripcionService {
         inscripcion.setTorneoId(inscripcionDTO.getTorneoId());
         inscripcion.setEquipoId(inscripcionDTO.getEquipoId());
         inscripcion.setFechaInscripcion(inscripcionDTO.getFechaInscripcion());
-        inscripcion.setEstado(inscripcionDTO.getEstado());
+
+        // Toda nueva inscripción comienza como PENDIENTE
+        inscripcion.setEstado("PENDIENTE");
 
         return this.inscripcionRepository.save(inscripcion);
     }

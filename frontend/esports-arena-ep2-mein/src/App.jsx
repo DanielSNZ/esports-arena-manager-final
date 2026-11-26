@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import {
   Link,
@@ -17,6 +16,7 @@ import Inscripcion from './pages/Inscripcion.jsx';
 import Equipos from './pages/Equipos.jsx';
 import Partidas from './pages/Partidas.jsx';
 import Ranking from './pages/Ranking.jsx';
+import PanelOrganizador from './pages/PanelOrganizador.jsx';
 
 import {
   obtenerSesion,
@@ -32,11 +32,32 @@ function RutaProtegida({ children, sesion }) {
   return children;
 }
 
+// Página protegida para organizadores y administradores
+function RutaOrganizador({ children, sesion }) {
+
+  if (!sesion) {
+    return <Navigate to="/login" replace />;
+  }
+
+  const rol = localStorage.getItem('rol');
+
+  if (!['ORGANIZADOR', 'ADMIN'].includes(rol)) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+}
+
 export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
   const [sesion, setSesion] = useState(() => obtenerSesion());
+
+  const rol = sesion ? localStorage.getItem('rol') : null;
+
+  const esOrganizador =
+    ['ORGANIZADOR', 'ADMIN'].includes(rol);
 
   // Actualizar la sesión al cambiar de página
   useEffect(() => {
@@ -60,7 +81,7 @@ export default function App() {
 
   return (
     <>
-      {/* NUEVA BARRA DE NAVEGACIÓN */}
+      {/* BARRA DE NAVEGACIÓN */}
 
       <header className="arena-topbar">
 
@@ -106,12 +127,27 @@ export default function App() {
             Ranking
           </Link>
 
-          <Link
-            to="/inscripcion"
-            className={location.pathname === '/inscripcion' ? 'activo' : ''}
-          >
-            Inscripción
-          </Link>
+          {/* INSCRIPCIÓN PARA USUARIOS NORMALES */}
+
+          {!esOrganizador && (
+            <Link
+              to="/inscripcion"
+              className={location.pathname === '/inscripcion' ? 'activo' : ''}
+            >
+              Inscripción
+            </Link>
+          )}
+
+          {/* MENÚ EXCLUSIVO DEL ORGANIZADOR */}
+
+          {esOrganizador && (
+            <Link
+              to="/organizador"
+              className={location.pathname === '/organizador' ? 'activo' : ''}
+            >
+              Panel organizador
+            </Link>
+          )}
 
         </nav>
 
@@ -174,7 +210,10 @@ export default function App() {
           path="/inscripcion"
           element={
             <RutaProtegida sesion={sesion}>
-              <Inscripcion />
+              {esOrganizador
+                ? <Navigate to="/organizador" replace />
+                : <Inscripcion />
+              }
             </RutaProtegida>
           }
         />
@@ -184,6 +223,17 @@ export default function App() {
         <Route path="/partidas" element={<Partidas />} />
 
         <Route path="/ranking" element={<Ranking />} />
+
+        {/* RUTA EXCLUSIVA DEL ORGANIZADOR */}
+
+        <Route
+          path="/organizador"
+          element={
+            <RutaOrganizador sesion={sesion}>
+              <PanelOrganizador />
+            </RutaOrganizador>
+          }
+        />
 
       </Routes>
 

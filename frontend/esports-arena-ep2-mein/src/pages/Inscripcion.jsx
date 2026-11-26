@@ -1,5 +1,5 @@
-
 import { useEffect, useState } from 'react';
+import HistorialInscripciones from './HistorialInscripciones';
 
 const API = 'http://localhost:8080';
 
@@ -147,6 +147,11 @@ export default function Inscripcion() {
       );
 
       setDatos(datosIniciales);
+
+      // Actualizar automáticamente el historial.
+      window.dispatchEvent(
+        new Event('inscripcion-actualizada')
+      );
 
     } catch (error) {
       setTipoMensaje('danger');
@@ -391,6 +396,10 @@ export default function Inscripcion() {
           </aside>
 
         </div>
+
+        {/* NUEVO HISTORIAL DE INSCRIPCIONES */}
+
+        <HistorialInscripciones />
 
       </section>
 

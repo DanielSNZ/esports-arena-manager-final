@@ -4,6 +4,7 @@ import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.SecurityScheme;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,6 +18,11 @@ public class SwaggerConfig {
                         .title("API Inscripciones")
                         .version("1.0")
                         .description("Gestión de inscripciones del sistema Esports Arena Manager"))
+
+                .addSecurityItem(
+                        new SecurityRequirement().addList("bearer-jwt")
+                )
+
                 .components(new Components().addSecuritySchemes(
                         "bearer-jwt",
                         new SecurityScheme()
